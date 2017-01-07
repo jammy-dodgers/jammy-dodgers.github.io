@@ -4,12 +4,12 @@ body
 	font-family: Consolas, Inconsolata, Courier New, Courier, monospace;
 	background-color: #333333;
 	color: #ffffff;
-    font-size:2.2vh;
 }
 header 
 {
 	font-family: Consolas, Inconsolata, Courier New, Courier, monospace;
     margin-left: 5%;
+    font-size:2.2vh;
 }
 a:link
 {
@@ -21,6 +21,7 @@ a:link
 .main
 {
     margin-left: 10%;
+    font-size:2.6vh;
 }
 .alignShort
 {
