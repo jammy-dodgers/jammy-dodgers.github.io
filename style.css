@@ -27,6 +27,13 @@ a:link
 {
     color: BlueViolet;
 }
+p{
+   display:block;
+    border-left-style:solid;
+    background-color:#EAEAEA;
+    padding:0.6vh;
+    padding-left:2.5vh; 
+}
 .main
 {
     margin-left: 10%;
