@@ -28,6 +28,11 @@ a:link
 {
     color: BlueViolet;
 }
+summary:hover
+{
+    cursor:pointer;
+    text-decoration:underline;
+}
 .main
 {
     margin-left: 10%;
