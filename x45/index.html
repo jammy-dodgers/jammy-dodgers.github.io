@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>Temp</title>
+<link href="https://fonts.googleapis.com/css?family=Inconsolata|Lato" rel="stylesheet"> 
+<style type="text/css">
+body {
+    margin-left:10%;
+    margin-right:10%;
+    font-family: 'Lato', sans-serif;
+}
+span {
+	font-family: 'Inconsolata', 'Consolas', monospace;
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+}
+.sc4 {
+	font-weight: bold;
+	color: #0000FF;
+}
+.sc5 {
+	color: #8000FF;
+}
+.sc6 {
+	color: #800000;
+}
+.sc12 {
+	color: #0080FF;
+}
+.sc13 {
+}
+.sc24 {
+}
+h1,h2{
+    font-family: 'Inconsolata', sans-serif;
+}
+h1{
+    font-size:300%;
+}
+.tagline {
+    border-width:0px;
+    border-bottom:1px;
+    border-style:solid;
+    border-color:#AAAAAA;
+    font-style:italic;
+}
+.contents{
+list-style:none;
+}
+</style>
+</head>
+<body>
+<h1 id="top">Currently Unnamed Language</h1>
+<div class="tagline">Statically typed scripting language.</div>
+<div style="margin-bottom:32px;font-size:75%;">Please note: This is a WIP. Everything is subject to change. </div>
+<h2>Example</h2>
+<pre style="white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc4">fn</span><span class="sc24"> </span><span class="sc0">Main</span><span class="sc12">(</span><span class="sc0">args</span><span class="sc12">:</span><span class="sc5">string</span><span class="sc12">[])</span><span class="sc24"> </span><span class="sc12">-&gt;</span><span class="sc24"> </span><span class="sc5">int</span><span class="sc24"> </span><span class="sc13">{</span><span class="sc24">
+    </span><span class="sc0">args.Map</span><span class="sc12">(</span><span class="sc0">x</span><span class="sc24"> </span><span class="sc0">=&gt;</span><span class="sc24"> </span><span class="sc0">x.Reverse</span><span class="sc12">())</span><span class="sc0">.Foreach</span><span class="sc12">(</span><span class="sc0">x</span><span class="sc24"> </span><span class="sc0">=&gt;</span><span class="sc24"> </span><span class="sc0">print</span><span class="sc12">(</span><span class="sc0">x</span><span class="sc12">))</span><span class="sc24">
+</span><span class="sc13">}</span><span class="sc24">
+
+</span><span class="sc4">fn</span><span class="sc24"> </span><span class="sc0">Map</span><span class="sc24"> </span><span class="sc0">&lt;T&gt;</span><span class="sc24"> </span><span class="sc12">(</span><span class="sc24"> </span><span class="sc0">src</span><span class="sc12">:</span><span class="sc0">T</span><span class="sc12">[]:</span><span class="sc4">this</span><span class="sc12">,</span><span class="sc24"> </span><span class="sc0">Action</span><span class="sc12">:</span><span class="sc0">T</span><span class="sc12">-&gt;</span><span class="sc0">T</span><span class="sc24"> </span><span class="sc12">)</span><span class="sc24"> </span><span class="sc12">-&gt;</span><span class="sc24"> </span><span class="sc0">T</span><span class="sc12">[]</span><span class="sc24"> </span><span class="sc13">{</span><span class="sc24">
+    </span><span class="sc0">newlist</span><span class="sc12">:</span><span class="sc0">T</span><span class="sc12">[]</span><span class="sc24"> </span><span class="sc0">=</span><span class="sc24"> </span><span class="sc4">new</span><span class="sc24"> </span><span class="sc6">List&lt;T&gt;</span><span class="sc12">(</span><span class="sc0">src.len</span><span class="sc12">)</span><span class="sc24">
+    </span><span class="sc4">foreach</span><span class="sc24"> </span><span class="sc0">val</span><span class="sc12">:</span><span class="sc0">T</span><span class="sc12">,</span><span class="sc24"> </span><span class="sc0">index</span><span class="sc12">:</span><span class="sc5">int</span><span class="sc24"> </span><span class="sc4">in</span><span class="sc24"> </span><span class="sc0">src</span><span class="sc24"> </span><span class="sc13">{</span><span class="sc24">
+        </span><span class="sc0">newlist</span><span class="sc12">[</span><span class="sc0">index</span><span class="sc12">]</span><span class="sc24"> </span><span class="sc0">=</span><span class="sc24"> </span><span class="sc0">Action</span><span class="sc12">(</span><span class="sc0">val</span><span class="sc12">)</span><span class="sc24">
+    </span><span class="sc13">}</span><span class="sc24">
+</span><span class="sc13">}</span><span class="sc24">
+</span><span class="sc4">fn</span><span class="sc24"> </span><span class="sc0">Foreach</span><span class="sc24"> </span><span class="sc0">&lt;T&gt;</span><span class="sc24"> </span><span class="sc12">(</span><span class="sc24"> </span><span class="sc0">src</span><span class="sc12">:</span><span class="sc0">T</span><span class="sc12">[]:</span><span class="sc4">this</span><span class="sc12">,</span><span class="sc24"> </span><span class="sc0">Action</span><span class="sc12">:</span><span class="sc0">T</span><span class="sc12">-&gt;</span><span class="sc5">void</span><span class="sc24"> </span><span class="sc12">)</span><span class="sc24"> </span><span class="sc12">-&gt;</span><span class="sc24"> </span><span class="sc5">void</span><span class="sc24"> </span><span class="sc13">{</span><span class="sc24">
+    </span><span class="sc4">foreach</span><span class="sc24"> </span><span class="sc0">val</span><span class="sc12">:</span><span class="sc0">T</span><span class="sc24"> </span><span class="sc4">in</span><span class="sc24"> </span><span class="sc0">src</span><span class="sc24"> </span><span class="sc13">{</span><span class="sc24">
+        </span><span class="sc0">Action</span><span class="sc12">(</span><span class="sc0">val</span><span class="sc12">)</span><span class="sc24">
+    </span><span class="sc13">}</span><span class="sc24">
+</span><span class="sc13">}</span></pre>
+
+</body>
+</html>
