@@ -20,6 +20,7 @@ var app = new Vue({
         }
     }
 });
+//below code not mine
 var textareas = document.getElementsByTagName('textarea');
 var count = textareas.length;
 for(var i=0;i<count;i++){
