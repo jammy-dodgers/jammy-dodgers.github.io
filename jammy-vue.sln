@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{01982EC0-98BD-4125-B77E-AF84D620709F}"
+	ProjectSection(SolutionItems) = preProject
+		index.html = index.html
+		stuff.html = stuff.html
+		stuff.js = stuff.js
+		style.css = style.css
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "stuff", "stuff", "{52A25AEA-9640-4909-81DF-96DC600714E5}"
+	ProjectSection(SolutionItems) = preProject
+		stuff\lexer.js = stuff\lexer.js
+		stuff\parser.js = stuff\parser.js
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{52A25AEA-9640-4909-81DF-96DC600714E5} = {01982EC0-98BD-4125-B77E-AF84D620709F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {78FB0094-C34B-489A-80C6-6F233E652A03}
+	EndGlobalSection
+EndGlobal
