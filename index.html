@@ -11,8 +11,10 @@
 <body>
     <div class="mainbody">
         <h1>jambox.cc</h1>
+        <blockquote id="quote" style="margin-bottom: 5em;font-style:italic; font-family:courier, monospace;"></blockquote>
         <div>
-            There is nothing here right now. Maybe check out <a href="http://github.jambox.cc">my github.</a>
+            <p><a href="http://github.jambox.cc">github</a></p>
+            <p><a href="http://devblog.jambox.cc">dev blog stuff</a></p>
         </div>
     </div>
 
@@ -21,4 +23,6 @@
     </a>
     <noscript style="position:absolute;bottom:0;margin:13px;font-size:10px">Disabling Javascript may break parts of this site. You have been warned.</noscript>
 </body>
+    <script>pcj = ["rewrite it in rust", "there is no problem a ?: can't solve", "here: goto *((uintptr_t)&&here + (rand() % 256));", "com/sun/java/swing/plaf/nimbus/InternalFrameInternalFrameTitlePaneInternalFrameTitlePaneMaximizeButtonWindowNotFocusedState.java", "who needs System.String.Empty when you can System.IO.File.ReadAllText(\"/dev/null\")"];
+    document.getElementById("quote").innerHTML = pcj[Math.floor(Math.random()*pcj.length)]</script>
 </html>
