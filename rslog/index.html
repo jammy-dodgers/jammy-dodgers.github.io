@@ -1,0 +1,26 @@
+<htmL>
+    <head>
+        <meta charset="UTF-8">
+        <title>Collection Log Popup Generator</title>
+        <link rel="icon" type="image/png" href="./favicon.png">
+        <style>
+            @font-face {
+                font-family: 'Runescape Small';
+                /* src: url('./runescape_small.otf') format('opentype'); */
+                src: url('./runescape_small.woff2') format('woff2');
+                font-weight: normal;
+                font-style: normal;
+                font-size: 12pt;
+
+            }
+            canvas {
+                image-rendering:pixelated;
+            }
+        </style>
+    </head>
+    <body>
+        <input id="text" type="text" disabled="true"></input><br />
+        <canvas id="log" width="178" height="100"></canvas><br />
+        <script src="./collection_log.js"></script>
+    </body>
+</htmL>
