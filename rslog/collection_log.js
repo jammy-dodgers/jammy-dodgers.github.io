@@ -2,9 +2,10 @@ function draw_log() {
     context.drawImage(base,0,0);
     context.font = "12pt 'Runescape Small'"
     context.fillStyle="black";
-    context.textAlign="center";
+    context.textAlign="left";
     context.textBaseline = "hanging";
-    let x = Math.floor(canvas.width / 2);
+    let text_width = context.measureText(text.value).width;
+    let x = Math.floor(canvas.width / 2) - Math.floor(text_width / 2);
     let y = 65;
     context.fillText(text.value, x+1, y+1);
     context.fillStyle="white";
