@@ -7,7 +7,7 @@
 // This is not good code. This was made for a programming race against a friend.
 let word_boxes = [];
 
-let words_url = "https://raw.githubusercontent.com/dwyl/english-words/master/words.txt";
+let words_url = "https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt";
 
 let seed = new URLSearchParams(window.location).get("seed");
 if (seed == null) {
@@ -28,7 +28,7 @@ function gen_boxes() {
   }
 }
 
-async function loaded(words) {
+function loaded(words) {
   console.log(words.length);
   //not uniformly distributed: todo - fix
   seed = Math.round(seed * words.length);
@@ -47,18 +47,18 @@ async function loaded(words) {
     } else if (e.key.length == 1 && current_guess.length < 5) {
       current_guess += e.key.toUpperCase();
     } else if (e.key == "Enter") {
-    	let real_word = true;
-    	if (!words.includes(current_guess)) {
-        let not_real_word = document.createElement("div");
-        not_real_word.textContent = current_guess + " is not a real word!";
-        document.getElementById("winner").appendChild(not_real_word);
-        current_guess = "";
-        real_word = false;
-      }
-      if (!real_word) {
-      	return;
-      }
-      if (current_guess.length == 5) {
+        if (current_guess.length == 5) {
+        let real_word = true;
+        if (!words.includes(current_guess)) {
+          let not_real_word = document.createElement("div");
+          not_real_word.textContent = current_guess + " is not a real word!";
+          document.getElementById("winner").appendChild(not_real_word);
+          current_guess = "";
+          real_word = false;
+        }
+        if (!real_word) {
+          return;
+        }
         ++words_guessed;
         let guesses_last_index = current_guess.split("").reduce((dict, val) => (dict[val] = 0, dict), {});
         if (current_guess == answer) {
@@ -121,7 +121,7 @@ async function loaded(words) {
   all_words_unsplit = await all_words_http_req.text();
   split_words = all_words_unsplit.split(/\r?\n/);
   split_words = split_words.filter(x => x.length == 5 && /[A-Za-z]{5}/.test(x)).map(x => x.toUpperCase());
-  await loaded(split_words);
+  loaded(split_words);
 })()
 
     </script>
@@ -151,6 +151,11 @@ async function loaded(words) {
     </style>
 </head>
 <body>
+    <p>This is not good code. 
+    This is not good HTML. 
+    This is probably full of bad practices. 
+    The words will be hard (it's pulling words from https://github.com/dwyl/english-words). 
+    This was made for a programming race against a friend.</p>
 <div id="winner">
 </div>
 </body>
