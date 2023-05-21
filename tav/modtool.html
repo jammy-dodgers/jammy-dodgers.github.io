@@ -1,0 +1,67 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <textarea id="users" oninput="go()" style="width:60em;height:20em;"></textarea><br/>
+        <ul id="output"></ul>
+    </body>
+    <script>
+        const rankMonths = 4;
+        var ranks = [
+            "Firestarter",
+            "Firemaker",
+            "Burnt",
+            "Legacy",
+            "Prodigy",
+            "Ignitor"
+        ]
+        function monthDiff(d1, d2) {
+            var months;
+            months = (d2.getFullYear() - d1.getFullYear()) * 12;
+            months -= d1.getMonth();
+            months += d2.getMonth();
+            return months <= 0 ? 0 : months;
+        } 
+        var textArea = document.getElementById("users");
+        var output = document.getElementById("output");
+        function go() {
+            output.innerHTML = "";
+            var users = {}
+            try {
+                users = JSON.parse(textArea.value);
+            } catch (e) {
+                var elem = document.createElement("li");
+                elem.innerText += "Error in input: " + e.message;
+                output.appendChild(elem);
+                return;
+            }
+            var currentDate = new Date();
+            var anychanges = false;
+            users.forEach(user => {
+                var username = user.rsn;
+                var userJoinDate = user.joinedDate;
+                var userCurrentRank = user.rank;
+                var diff = monthDiff(new Date(userJoinDate), currentDate);
+                if (ranks.includes(userCurrentRank)) {
+                    var deservedRank = (diff / rankMonths) | 0;
+                    if (deservedRank > ranks.length) {
+                        deservedRank = ranks.length - 1;
+                    }
+                    if (ranks[deservedRank] != userCurrentRank) {
+                        var elem = document.createElement("li");
+                        elem.innerText += username + " requires ranking to " + ranks[deservedRank] + " (tier " + (deservedRank+1) + ")";
+                        output.appendChild(elem);
+                        anychanges = true;
+                    }
+                }
+            });
+            if (!anychanges) {
+                var elem = document.createElement("li");
+                elem.innerText += "No changes! Relax!";
+                output.appendChild(elem);
+                anychanges = true;
+            }
+        }
+        textArea.onkeypress = "go";
+    </script>
+</html>
