@@ -44,7 +44,7 @@
                 var diff = monthDiff(new Date(userJoinDate), currentDate);
                 if (ranks.includes(userCurrentRank)) {
                     var deservedRank = (diff / rankMonths) | 0;
-                    if (deservedRank > ranks.length) {
+                    if (deservedRank >= ranks.length) {
                         deservedRank = ranks.length - 1;
                     }
                     if (ranks[deservedRank] != userCurrentRank) {
